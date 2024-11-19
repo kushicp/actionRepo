@@ -27,3 +27,5 @@ jobs:
         uses: cloudbees-io/kaniko/.cloudbees/testing
         with:
           destination: docker.io/kushalcp/kanikotest/docker-demo:0.0.1-SNAPSHOT
+          verbosity: DEBUG
+          send-artifact-info: true
