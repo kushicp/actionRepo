@@ -23,7 +23,7 @@ jobs:
           registry: https://index.docker.io/v1/
           username: ${{ vars.DOCKERHUB_UNAME }}
           password: ${{ secrets.DOCKERHUB_PWD }}
-      - name: Build container image with Kaniko (Rich)
-        uses: cloudbees-io/kaniko@CBP-6772-2
+      - name: Build container image with Kaniko (Kush)
+        uses: cloudbees-io/kaniko/.cloudbees/testing
         with:
-          destination: docker.io/rthomascb/docker-demo:0.0.1-SNAPSHOT
+          destination: docker.io/kushalcp/kanikotest/docker-demo:0.0.1-SNAPSHOT
