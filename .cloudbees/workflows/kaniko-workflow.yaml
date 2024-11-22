@@ -26,6 +26,6 @@ jobs:
       - name: Build container image with Kaniko (Kush)
         uses: cloudbees-io/kaniko/.cloudbees/testing
         with:
-          destination: docker.io/kushalcp/kanikotest/docker-demo:0.0.1-SNAPSHOT
+          destination: docker.io/kushicp/kanikotest/docker-demo:0.0.1-SNAPSHOT
           verbosity: DEBUG
           send-artifact-info: true
