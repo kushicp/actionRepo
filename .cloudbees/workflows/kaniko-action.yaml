@@ -1,5 +1,5 @@
 apiVersion: automation.cloudbees.io/v1alpha1
-kind: release
+kind: workflow
 name: kaniko-action
 on:
   workflow_dispatch:
