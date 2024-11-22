@@ -1,11 +1,11 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: release
-name: My automation
+name: kaniko-action
 on:
   workflow_dispatch:
 jobs:
   build:
-    environment: us-env
+    #environment: us-env
     steps:
       - uses: docker://alpine/git:latest
         run: |
