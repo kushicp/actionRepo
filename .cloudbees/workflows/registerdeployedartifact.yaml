@@ -25,7 +25,7 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         if: always()
         run: |
-          echo "Custom action outputs: ${{ toJSON(steps.error_missing_env) }}"
+          echo "Custom action outputs: ${{ toJSON(steps.error_missing_env.outputs) }}"
 
 
   success_valid_env_reg_artifact:
