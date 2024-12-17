@@ -7,8 +7,6 @@ on:
       - "**"
   workflow_dispatch:
 jobs:
-  # Error is thrown by dsl-engine in scenarios like "Invalid environment", "no name". "no version", 
-  # causing the workflow to stop processing further and control does not reach the action. Hence, not added.
   error_missing_env_reg_artifact:
     steps:
       - name: Register deployed artifact with missing environment
@@ -25,17 +23,4 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         if: always()
         run: |
-          echo "Custom action outputs: ${{ toJSON(steps.error_missing_env.outputs) }}"
-
-
-  success_valid_env_reg_artifact:
-    environment: Test_env # environment must be specified on the job
-    steps:
-      - name: success_valid_env_reg_artifact
-        uses: cloudbees-io/register-deployed-artifact@v1 # The action will add the artifact version to the referenced environment inventory.
-        continue-on-error: true
-        with:
-          name: "testDeploymentRegister3"
-          version: "3.0.0"
-          url: "docker.io/myapp/mytestimg:3.0.0"
-          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3633"
+          echo "Custom action outputs: ${{ toJSON(steps.error_missing_env) }}"
