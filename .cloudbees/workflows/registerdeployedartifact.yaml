@@ -25,6 +25,6 @@ jobs:
 
       - name: Check if error_missing_env step is defined
         uses: docker://golang:1.20.3-alpine3.17
-        if: steps.error_missing_env != undefined
+        if: failure()
         run: echo "error_missing_env action step exists"
       
