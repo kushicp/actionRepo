@@ -1,0 +1,18 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: RegisterBuildArtifact
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+jobs:
+  build:
+    steps:
+      - name: Fail with missing name
+        uses: cloudbees-io/register-build-artifact@v1
+        with:
+          name: ""
+          version: "1.0.0"
+          url: "docker.io/myapp/myimg:1.0.0"
+          digest: ""
