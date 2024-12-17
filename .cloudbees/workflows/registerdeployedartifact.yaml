@@ -25,8 +25,7 @@ jobs:
         run: |
           echo "${{ toJSON(steps) }}"
 
-      - name: Debug Outputs
+      - name: Handle Failure
         uses: docker://golang:1.20.3-alpine3.17
-        if: always()
-        run: |
-          echo "Custom action outputs: ${{ toJSON(steps.error_missing_env) }}"
+        if: ${{ steps.error_missing_env && steps.error_missing_env.outcome == 'failure' }}
+        run: echo "The previous step failed!"
