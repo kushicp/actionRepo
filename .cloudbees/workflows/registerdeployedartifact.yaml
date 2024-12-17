@@ -19,10 +19,9 @@ jobs:
           url: "docker.io/myapp/mytestimg:2.0.0"
           digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3622"
       
-      - name: Debug Workflow Context
+      - name: Check if Step Exists
         uses: docker://golang:1.20.3-alpine3.17
-        if: always()
+        if:  steps.error_missing_env == undefined
         run: |
-          echo "${{ toJSON(steps) }}"
-
-    
+          echo "Step exists: ${{ toJSON(steps) }}"
+          echo "The previous step failed!"
