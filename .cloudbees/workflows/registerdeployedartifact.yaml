@@ -30,7 +30,7 @@ jobs:
         run: |
           echo "${{ toJSON(steps) }}"
 
- #     - name: Handle Failure
- #       uses: docker://golang:1.20.3-alpine3.17
- #       if: ${{ steps.error_missing_env.exit_code == 1  }}
- #       run: echo "The previous step failed!"
+      - name: Handle Failure
+        uses: docker://golang:1.20.3-alpine3.17
+        if: ${{ steps.step1.outcome != "success"  }}
+        run: echo "The previous step failed!"
