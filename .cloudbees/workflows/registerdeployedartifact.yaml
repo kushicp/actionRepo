@@ -30,7 +30,4 @@ jobs:
         run: |
           echo "${{ toJSON(steps) }}"
 
-      - name: Handle Failure
-        uses: docker://golang:1.20.3-alpine3.17
-        if: ${{ steps.step1.outcome != 'success' }}
-        run: echo "The previous step failed!"
+    
