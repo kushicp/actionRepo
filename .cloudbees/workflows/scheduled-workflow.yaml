@@ -4,9 +4,10 @@ name: Scheduled Workflow
 on:
   #schedule:
   #  - cron: 0 * * * *
-  push:
-    branches:
-      - main
+  #push:
+  #  branches:
+  #    - main
+  workflow_dispatch:
 jobs:
   build:
     steps:
