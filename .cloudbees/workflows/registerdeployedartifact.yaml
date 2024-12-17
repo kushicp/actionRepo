@@ -19,13 +19,18 @@ jobs:
           url: "docker.io/myapp/mytestimg:2.0.0"
           digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3622"
       
+      - name: Check if Step Exists
+        uses: docker://golang:1.20.3-alpine3.17
+        run: |
+          echo "Step exists: ${{ steps.error_missing_env != undefined }}"
+
       - name: Debug Workflow Context
         uses: docker://golang:1.20.3-alpine3.17
         if: always()
         run: |
           echo "${{ toJSON(steps) }}"
 
-      - name: Handle Failure
-        uses: docker://golang:1.20.3-alpine3.17
-        if: ${{ steps.error_missing_env.exit_code == 1  }}
-        run: echo "The previous step failed!"
+ #     - name: Handle Failure
+ #       uses: docker://golang:1.20.3-alpine3.17
+ #       if: ${{ steps.error_missing_env.exit_code == 1  }}
+ #       run: echo "The previous step failed!"
