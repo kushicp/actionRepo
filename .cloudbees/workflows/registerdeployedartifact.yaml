@@ -12,7 +12,6 @@ jobs:
       - name: Register deployed artifact with missing environment
         id: error_missing_env
         uses: cloudbees-io/register-deployed-artifact@v1
-        continue-on-error: true
         with:
           name: "testDeploymentRegister"
           version: "2.0.0"
