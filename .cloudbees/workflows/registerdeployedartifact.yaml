@@ -9,17 +9,17 @@ on:
   workflow_dispatch:
 jobs:
   test:
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
 
       - name: Failing Step
         id: failing_step
         continue-on-error: true
-        uses: actions/github-script@v6
+        uses: cloudbees-io/register-deployed-artifact@v1
         with:
-          script: |
-            throw new Error('This step is intentionally failing')
+          name: "testDeploymentRegister"
+          version: "2.0.0"
+          url: "docker.io/myapp/mytestimg:2.0.0"
+          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3622"
 
       - name: Verify Failure
         uses: docker://golang:1.20.3-alpine3.17
