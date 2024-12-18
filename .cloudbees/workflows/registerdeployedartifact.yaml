@@ -20,9 +20,10 @@ jobs:
       
       - name: Check if previous step is defined
         uses: docker://golang:1.20.3-alpine3.17
+        contine-on-error: true
         if: failure()
         run: echo "error_missing_env action step failed"
-        contine-on-error: true
+        
        
       - name: Debug Steps Context
         uses: docker://golang:1.20.3-alpine3.17
