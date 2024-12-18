@@ -29,7 +29,7 @@ jobs:
       - name: Conditional Step
         uses: docker://golang:1.20.3-alpine3.17
         continue-on-error: true
-        if: ${{ github.error_missing_env == 'skipped' }}
+        if: ${{ jobs.error_missing_env == 'skipped' }}
         run: echo "The job was skipped."
 
       - name: Check if previous step failed
