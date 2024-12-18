@@ -23,8 +23,3 @@ jobs:
         continue-on-error: true
         if: failure()
         run: echo "error_missing_env action step failed"
-        
-       
-      - name: Debug Steps Context
-        uses: docker://golang:1.20.3-alpine3.17
-        run: echo "${{ toJSON(steps) }}"
