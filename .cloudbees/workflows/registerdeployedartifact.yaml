@@ -17,17 +17,13 @@ jobs:
           version: "2.0.0"
           url: "docker.io/myapp/mytestimg:2.0.0"
           digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3622"
-      
-      - name: Check if previous step failed
-        uses: docker://golang:1.20.3-alpine3.17
-        if: failure()
-        run: echo "error_missing_env action step failed"
 
-      - name: Check if previous step failed
-        uses: docker://golang:1.20.3-alpine3.17
-        if: ${{ job.status == 'failure' }}
-        run: echo "error_missing_env_reg_artifact job failed"
-
-      
+    second_job:
+      needs: error_missing_env_reg_artifact
+      runs-on: ubuntu-latest
+      if: ${{ needs.error_missing_env_reg_artifact.result == 'failure' }}
+      steps:
+        - run: echo "First job failed!"
+        
 
       
