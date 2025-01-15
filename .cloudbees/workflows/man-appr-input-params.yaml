@@ -6,7 +6,7 @@ on:
 jobs:
   ask-now:
     with:
-      approvers: 0a808e26-f884-11ec-aa0a-42010a83ae55
+      approvers: 0a808e26-f884-11ec-aa0a-42010a83ae55,0cb88e48-03d3-11eb-9d67-42010a83ae35
       disallowLaunchByUser: false
       instructions: Test instructions here
       approvalInputs: |
@@ -37,7 +37,7 @@ jobs:
         num_no_req_no_def:
           type: number
     timeout-minutes: 4320
-    delegates: cloudbees-io/manual-approval/.cloudbees/testing/custom-job.yml@CBP-8428-export_input_output
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
   print_outputs:
     steps:
       - name: Print manual approval output params
@@ -46,5 +46,4 @@ jobs:
         run: |
           echo "Output from custom job:"
           echo "str_req_def: ${{needs.ask-now.outputs.approvalInputValues}}"
-         
     needs: ask-now
