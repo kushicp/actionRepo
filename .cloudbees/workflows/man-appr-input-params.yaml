@@ -24,13 +24,12 @@ jobs:
         bool_no_req_def:
           type: boolean
           default: true
-        bool_req_no_def:
-          type: boolean
-          default: false
-          required: true
+        #bool_req_no_def:
+        #  type: boolean
+        #  default: false
+        #  required: true
         bool_no_req_no_def:
           type: boolean
-          default: false
         num_no_req_def:
           type: number
           default: 9999
