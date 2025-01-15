@@ -45,5 +45,6 @@ jobs:
         shell: sh
         run: |
           echo "Output from custom job:"
-          echo "str_req_def: ${{needs.ask-now.outputs}}"
+          echo "comments: ${{needs.ask-now.outputs.comments}}"
+           echo "approvalInputValues: ${{needs.ask-now.outputs.approvalInputValues}}"
     needs: ask-now
