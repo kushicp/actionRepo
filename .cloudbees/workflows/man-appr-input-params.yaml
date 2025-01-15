@@ -31,6 +31,11 @@ jobs:
         bool_no_req_no_def:
           type: boolean
           default: false
+        num_no_req_def:
+          type: number
+          default: 9999
+        num_no_req_no_def:
+          type: number
     timeout-minutes: 4320
     delegates: cloudbees-io/manual-approval/custom-job.yml@CBP-8428-export_input_output
   print_outputs:
@@ -40,11 +45,12 @@ jobs:
         shell: sh
         run: |
           echo "Output from custom job:"
-          echo "str_req_def: ${{ ${{needs.ask-now.outputs.str_req_def}}"
-          echo "str_no_req_def: ${{needs.ask-now.outputs.str_no_req_def}}"
-          echo "bool_req_def: ${{needs.ask-now.outputs.bool_req_def}}"
-          echo "bool_no_req_def: ${{needs.ask-now.outputs.bool_no_req_def}}"
-          echo "bool_req_no_def: ${{needs.ask-now.outputs.bool_req_no_def}}"
-          echo "bool_no_req_no_def: ${{needs.ask-now.outputs.bool_no_req_no_def}}"
-
+          echo "str_req_def: ${{ ${{needs.ask-now.outputs.approvalInputValues.str_req_def}}"
+          echo "str_no_req_def: ${{needs.ask-now.outputs.approvalInputValues.str_no_req_def}}"
+          echo "bool_req_def: ${{needs.ask-now.outputs.approvalInputValues.bool_req_def}}"
+          echo "bool_no_req_def: ${{needs.ask-now.outputs.approvalInputValues.bool_no_req_def}}"
+          echo "bool_req_no_def: ${{needs.ask-now.outputs.approvalInputValues.bool_req_no_def}}"
+          echo "bool_no_req_no_def: ${{needs.ask-now.outputs.approvalInputValues.bool_no_req_no_def}}"
+          echo "num_no_req_def: ${{needs.ask-now.outputs.approvalInputValues.num_no_req_def}}"
+          echo "num_no_req_no_def: ${{needs.ask-now.outputs.approvalInputValues.num_no_req_no_def}}"
     needs: ask-now
