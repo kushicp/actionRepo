@@ -36,7 +36,7 @@ jobs:
         num_no_req_no_def:
           type: number
     timeout-minutes: 4320
-    delegates: cloudbees-io/manual-approval/.cloudbees/testing/custom-job.yml
+    delegates: cloudbees-io/manual-approval/.cloudbees/testing/custom-job.yml@d835cd9141370306088d659a87fe05aeaeaef6f5
   print_outputs:
     steps:
       - name: Print manual approval output params
