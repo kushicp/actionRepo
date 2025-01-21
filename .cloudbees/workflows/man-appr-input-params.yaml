@@ -36,7 +36,7 @@ jobs:
         num_no_req_no_def:
           type: number
     timeout-minutes: 4320
-    delegates: cloudbees-io/manual-approval/.cloudbees/testing/custom-job.yml@CBP-8745-400_Error
+    delegates: cloudbees-io/manual-approval/.cloudbees/testing/custom-job.yml
   print_outputs:
     steps:
       - name: Print manual approval output params
