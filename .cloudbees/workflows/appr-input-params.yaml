@@ -22,8 +22,14 @@ jobs:
           type: number
           default: 9999
           required: true
+        ch_opt_def:
+          type: choice
+          options:
+            - op1
+            - op2
+          default: op2
     timeout-minutes: 4320
-    delegates: cloudbees-io/manual-approval/.cloudbees/testing/custom-job.yml
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
   print_outputs:
     steps:
       - name: Print manual approval output params
