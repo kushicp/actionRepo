@@ -28,6 +28,8 @@ jobs:
             - op1
             - op2
           default: op2
+        str_opt_no_def:
+          type: string
     timeout-minutes: 4320
     delegates: cloudbees-io/manual-approval/custom-job.yml@v1
   print_outputs:
