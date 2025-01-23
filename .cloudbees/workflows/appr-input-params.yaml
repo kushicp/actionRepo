@@ -42,4 +42,8 @@ jobs:
           echo "Output from custom job:"
           echo "comments: ${{ needs.ask-now.outputs.comments }}"
           echo "approvalInputValues: ${{ needs.ask-now.outputs.approvalInputValues }}"
+          echo "str_req_def: ${{fromJson(needs.ask-now.approvalInputValues).str_req_def}}"
+          echo "bool_req_def: ${{fromJson(needs.ask-now.approvalInputValues).bool_req_def}}"
+          echo "num_req_def: ${{fromJson(needs.ask-now.approvalInputValues).num_req_def}}"
+          echo "ch_opt_def: ${{fromJson(needs.ask-now.approvalInputValues).ch_opt_def}}"
     needs: ask-now
