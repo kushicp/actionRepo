@@ -31,7 +31,7 @@ jobs:
         str_opt_no_def:
           type: string
     timeout-minutes: 4320
-    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
+    delegates: cloudbees-io/manual-approval/.cloudbees/testing/custom-job.yml@CBP-8570_Bad_request
   print_outputs:
     steps:
       - name: Print manual approval output params
