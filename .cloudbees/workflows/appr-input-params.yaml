@@ -19,6 +19,14 @@ jobs:
           type: boolean
           default: true
           required: true
+        bool_no_req_def_tr:
+          type: boolean
+          default: true
+          description: a boolean input
+        bool_no_req_def_fa:
+          type: boolean
+          default: false
+          description: a boolean input  
         num_req_def:
           type: number
           default: 9999
