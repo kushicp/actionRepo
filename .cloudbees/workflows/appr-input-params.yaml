@@ -15,6 +15,9 @@ jobs:
           type: string
           default: def1
           required: true
+        str_opt_def:
+          type: string
+          default: def2
         bool_req_def:
           type: boolean
           default: true
@@ -31,6 +34,9 @@ jobs:
           type: number
           default: 9999
           required: true
+        num_opt_def:
+          type: number
+          default: 1234
         ch_opt_def:
           type: choice
           options:
