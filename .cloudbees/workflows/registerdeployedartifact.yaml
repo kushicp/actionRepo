@@ -1,27 +1,77 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: Failing step
+name: RegisterDeployedArtifact
 
 on:
-  push:
-    branches:
-      - "test_other"
   workflow_dispatch:
 jobs:
-  test:
+  build:
     steps:
-
-      - name: Failing Step
-        id: failing_step
-        continue-on-error: true
-        uses: cloudbees-io/register-deployed-artifact@v1
+      - name: label1, Label with space, aLabel!!
+        uses: cloudbees-io/register-deployed-artifact@CBP-12152
         with:
-          name: "testDeploymentRegister"
+          name: "kcpDeplRegister 0"
+          version: "0.0.1"
+          url: "docker.io/myapp/kcpImg:0.0.1"
+          digest: "d1"
+          labels: "label1, Label with space, aLabel!!"
+      - name: "['aLabel1', 'aLabel2', 'aLabel3']"
+        uses: cloudbees-io/register-deployed-artifact@CBP-12152
+        with:
+          name: "kcpDeplRegister 2"
           version: "2.0.0"
-          url: "docker.io/myapp/mytestimg:2.0.0"
-          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3622"
-
-      - name: Verify Failure
-        uses: docker://golang:1.20.3-alpine3.17
-        if: steps.failing_step.outcome == 'failure'
-        run: echo "The previous step failed as expected"
+          url: "docker.io/myapp/kcpImg:2.0.2"
+          digest: "d2"
+          labels: "['aLabel1', 'aLabel2', 'aLabel3']"
+      - name: '["aL1","aL2","aL3"]'
+        uses: cloudbees-io/register-deployed-artifact@CBP-12152
+        with:
+          name: "kcpDeplRegister 3"
+          version: "3.0.0"
+          url: "docker.io/myapp/kcpImg:3.0.3"
+          digest: "d3"
+          labels:  '["aL1","aL2","aL3"]'
+      # invalid Failed
+      # - name: '[\"aL1\",\"aL2\",\"aL3\"]'
+      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   with:
+      #     name: "kcpDeplRegister 4"
+      #     version: "4.0.0"
+      #     url: "docker.io/myapp/kcpImg:4.0.4"
+      #     digest: "d4"
+      #     labels:  '[\"aL1\",\"aL2\",\"aL3\"]'
+      # "message":"label cannot be empty or whitespace"
+      # - name: empty label and whitespaces
+      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   with:
+      #     name: "kcpDeplRegister 5"
+      #     version: "5.0.0"
+      #     url: "docker.io/myapp/kcpImg:5.0.5"
+      #     digest: "d5"
+      #     labels: " ,       Label with space     , aLabel!!    "
+      # "message":"label cannot be empty or whitespace"
+      # - name: empty labels separated by ,
+      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   with:
+      #     name: "kcpDeplRegister 6"
+      #     version: "6.0.0"
+      #     url: "docker.io/myapp/kcpImg:6.0.6"
+      #     digest: "d6"
+      #     labels: " , "
+      - name: single label
+        uses: cloudbees-io/register-deployed-artifact@CBP-12152
+        with:
+          name: "kcpDeplRegister 7"
+          version: "7.0.0"
+          url: "docker.io/myapp/kcpImg:7.0.7"
+          digest: "d7"
+          labels: "HiLabel"
+      # "message":"label cannot be empty or whitespace"
+      # - name: single whitespace label
+      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   with:
+      #     name: "kcpDeplRegister 8"
+      #     version: "8.0.0"
+      #     url: "docker.io/myapp/kcpImg:8.0.8"
+      #     digest: "d8"
+      #     labels: "   "
