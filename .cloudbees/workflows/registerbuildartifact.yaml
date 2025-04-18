@@ -33,7 +33,7 @@ jobs:
       #     url: "docker.io/myapp/kcpImg:3.0.3"
       #     digest: "d3"
       #     labels:  '["aL1","aL2","aL3"]'
-      # Failed
+      # invalid Failed
       # - name: '[\"aL1\",\"aL2\",\"aL3\"]'
       #   uses: cloudbees-io/register-build-artifact@CBP-12151
       #   with:
@@ -42,14 +42,15 @@ jobs:
       #     url: "docker.io/myapp/kcpImg:4.0.4"
       #     digest: "d4"
       #     labels:  '[\"aL1\",\"aL2\",\"aL3\"]'
-      - name: empty label and whitespaces
-        uses: cloudbees-io/register-build-artifact@CBP-12151
-        with:
-          name: "kcpArtRegister 5"
-          version: "5.0.0"
-          url: "docker.io/myapp/kcpImg:5.0.5"
-          digest: "d5"
-          labels: " ,       Label with space     , aLabel!!    "
+      # "message":"label cannot be empty or whitespace"
+      # - name: empty label and whitespaces
+      #   uses: cloudbees-io/register-build-artifact@CBP-12151
+      #   with:
+      #     name: "kcpArtRegister 5"
+      #     version: "5.0.0"
+      #     url: "docker.io/myapp/kcpImg:5.0.5"
+      #     digest: "d5"
+      #     labels: " ,       Label with space     , aLabel!!    "
       - name: empty labels separated by ,
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
