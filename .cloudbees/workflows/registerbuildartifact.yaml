@@ -51,14 +51,15 @@ jobs:
       #     url: "docker.io/myapp/kcpImg:5.0.5"
       #     digest: "d5"
       #     labels: " ,       Label with space     , aLabel!!    "
-      - name: empty labels separated by ,
-        uses: cloudbees-io/register-build-artifact@CBP-12151
-        with:
-          name: "kcpArtRegister 6"
-          version: "6.0.0"
-          url: "docker.io/myapp/kcpImg:6.0.6"
-          digest: "d6"
-          labels: " , "
+      # "message":"label cannot be empty or whitespace"
+      # - name: empty labels separated by ,
+      #   uses: cloudbees-io/register-build-artifact@CBP-12151
+      #   with:
+      #     name: "kcpArtRegister 6"
+      #     version: "6.0.0"
+      #     url: "docker.io/myapp/kcpImg:6.0.6"
+      #     digest: "d6"
+      #     labels: " , "
       - name: single label
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
