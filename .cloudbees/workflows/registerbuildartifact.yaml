@@ -12,10 +12,10 @@ jobs:
       - name: label1, Label with space, aLabel!!
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
-          name: "artRegister 1"
-          version: "1.0.0"
-          url: "docker.io/myapp/myimg:1.0.0"
-          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3609"
+          name: "artRegister 0"
+          version: "0.0.1"
+          url: "docker.io/myapp/myimg:0.0.1"
+          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3608"
           labels: "label1, Label with space, aLabel!!"
       - name: "['aLabel1', 'aLabel2', 'aLabel3']"
         uses: cloudbees-io/register-build-artifact@CBP-12151
