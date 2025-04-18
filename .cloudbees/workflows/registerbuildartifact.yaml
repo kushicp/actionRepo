@@ -12,64 +12,64 @@ jobs:
       - name: label1, Label with space, aLabel!!
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
-          name: "artRegister 0"
+          name: "kcpArtRegister 0"
           version: "0.0.1"
-          url: "docker.io/myapp/myimg:0.0.1"
-          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3608"
+          url: "docker.io/myapp/kcpImg:0.0.1"
+          digest: "d1"
           labels: "label1, Label with space, aLabel!!"
       - name: "['aLabel1', 'aLabel2', 'aLabel3']"
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
-          name: "artRegister 2"
+          name: "kcpArtRegister 2"
           version: "2.0.0"
-          url: "docker.io/myapp/myimg:2.0.0"
-          digest: ""
+          url: "docker.io/myapp/kcpImg:2.0.2"
+          digest: "d2"
           labels: "['aLabel1', 'aLabel2', 'aLabel3']"
       - name: '["aL1","aL2","aL3"]'
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
-          name: "artRegister 3"
+          name: "kcpArtRegister 3"
           version: "3.0.0"
-          url: "docker.io/myapp/myimg:3.0.0"
-          digest: ""
+          url: "docker.io/myapp/kcpImg:3.0.3"
+          digest: "d3"
           labels:  '["aL1","aL2","aL3"]'
       - name: '[\"aL1\",\"aL2\",\"aL3\"]'
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
-          name: "artRegister 4"
+          name: "kcpArtRegister 4"
           version: "4.0.0"
-          url: "docker.io/myapp/myimg:4.0.0"
-          digest: ""
+          url: "docker.io/myapp/kcpImg:4.0.4"
+          digest: "d4"
           labels:  '[\"aL1\",\"aL2\",\"aL3\"]'
       - name: empty label and whitespaces
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
-          name: "artRegister 5"
+          name: "kcpArtRegister 5"
           version: "5.0.0"
-          url: "docker.io/myapp/myimg:5.0.0"
-          digest: ""
+          url: "docker.io/myapp/kcpImg:5.0.5"
+          digest: "d5"
           labels: " ,       Label with space     , aLabel!!    "
       - name: empty labels separated by ,
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
-          name: "artRegister 6"
+          name: "kcpArtRegister 6"
           version: "6.0.0"
-          url: "docker.io/myapp/myimg:6.0.0"
-          digest: ""
+          url: "docker.io/myapp/kcpImg:6.0.6"
+          digest: "d6"
           labels: " , "
       - name: single label
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
-          name: "artRegister 7"
+          name: "kcpArtRegister 7"
           version: "7.0.0"
-          url: "docker.io/myapp/myimg:7.0.0"
-          digest: ""
+          url: "docker.io/myapp/kcpImg:7.0.7"
+          digest: "d7"
           labels: "HiLabel"
       - name: single whitespace label
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
-          name: "artRegister 7"
-          version: "7.0.0"
-          url: "docker.io/myapp/myimg:7.0.0"
-          digest: ""
+          name: "kcpArtRegister 8"
+          version: "8.0.0"
+          url: "docker.io/myapp/kcpImg:8.0.8"
+          digest: "d8"
           labels: "   "
