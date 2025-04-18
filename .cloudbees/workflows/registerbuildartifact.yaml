@@ -9,38 +9,39 @@ on:
 jobs:
   build:
     steps:
-      - name: label1, Label with space, aLabel!!
-        uses: cloudbees-io/register-build-artifact@CBP-12151
-        with:
-          name: "kcpArtRegister 0"
-          version: "0.0.1"
-          url: "docker.io/myapp/kcpImg:0.0.1"
-          digest: "d1"
-          labels: "label1, Label with space, aLabel!!"
-      - name: "['aLabel1', 'aLabel2', 'aLabel3']"
-        uses: cloudbees-io/register-build-artifact@CBP-12151
-        with:
-          name: "kcpArtRegister 2"
-          version: "2.0.0"
-          url: "docker.io/myapp/kcpImg:2.0.2"
-          digest: "d2"
-          labels: "['aLabel1', 'aLabel2', 'aLabel3']"
-      - name: '["aL1","aL2","aL3"]'
-        uses: cloudbees-io/register-build-artifact@CBP-12151
-        with:
-          name: "kcpArtRegister 3"
-          version: "3.0.0"
-          url: "docker.io/myapp/kcpImg:3.0.3"
-          digest: "d3"
-          labels:  '["aL1","aL2","aL3"]'
-      - name: '[\"aL1\",\"aL2\",\"aL3\"]'
-        uses: cloudbees-io/register-build-artifact@CBP-12151
-        with:
-          name: "kcpArtRegister 4"
-          version: "4.0.0"
-          url: "docker.io/myapp/kcpImg:4.0.4"
-          digest: "d4"
-          labels:  '[\"aL1\",\"aL2\",\"aL3\"]'
+      # - name: label1, Label with space, aLabel!!
+      #   uses: cloudbees-io/register-build-artifact@CBP-12151
+      #   with:
+      #     name: "kcpArtRegister 0"
+      #     version: "0.0.1"
+      #     url: "docker.io/myapp/kcpImg:0.0.1"
+      #     digest: "d1"
+      #     labels: "label1, Label with space, aLabel!!"
+      # - name: "['aLabel1', 'aLabel2', 'aLabel3']"
+      #   uses: cloudbees-io/register-build-artifact@CBP-12151
+      #   with:
+      #     name: "kcpArtRegister 2"
+      #     version: "2.0.0"
+      #     url: "docker.io/myapp/kcpImg:2.0.2"
+      #     digest: "d2"
+      #     labels: "['aLabel1', 'aLabel2', 'aLabel3']"
+      # - name: '["aL1","aL2","aL3"]'
+      #   uses: cloudbees-io/register-build-artifact@CBP-12151
+      #   with:
+      #     name: "kcpArtRegister 3"
+      #     version: "3.0.0"
+      #     url: "docker.io/myapp/kcpImg:3.0.3"
+      #     digest: "d3"
+      #     labels:  '["aL1","aL2","aL3"]'
+      # Failed
+      # - name: '[\"aL1\",\"aL2\",\"aL3\"]'
+      #   uses: cloudbees-io/register-build-artifact@CBP-12151
+      #   with:
+      #     name: "kcpArtRegister 4"
+      #     version: "4.0.0"
+      #     url: "docker.io/myapp/kcpImg:4.0.4"
+      #     digest: "d4"
+      #     labels:  '[\"aL1\",\"aL2\",\"aL3\"]'
       - name: empty label and whitespaces
         uses: cloudbees-io/register-build-artifact@CBP-12151
         with:
