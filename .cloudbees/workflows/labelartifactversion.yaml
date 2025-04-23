@@ -3,6 +3,10 @@ kind: workflow
 name: LabelArtifactVersion
 on:
   workflow_dispatch:
+
+permissions:
+  contents: read
+  
 jobs:
   success_add_labels_to_artifact_ver:
     steps:
