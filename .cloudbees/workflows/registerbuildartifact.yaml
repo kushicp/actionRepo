@@ -14,7 +14,6 @@ jobs:
           version: "0.0.1"
           url: "docker.io/myapp/kcpBldImg:0.0.1"
           digest: "d1"
-          target-environment: "Test_env"
           labels: "label1, Label with space, aLabel!!"
       - name: "['aLabel1  ', 'aLabel2', 'aLabel3']"
         uses: cloudbees-io/register-build-artifact@CBP-14025
@@ -23,7 +22,6 @@ jobs:
           version: "2.0.0"
           url: "docker.io/myapp/kcpBldImg:2.0.2"
           digest: "d2"
-          target-environment: "Test_env"
           labels: "['aLabel1  ', '  aLabel2', '  aLabel3  ']"
       - name: '["aL1","aL2","aL3"]'
         uses: cloudbees-io/register-build-artifact@CBP-14025
@@ -31,8 +29,7 @@ jobs:
           name: "kcpBldRegister 3"
           version: "3.0.0"
           url: "docker.io/myapp/kcpBldImg:3.0.3"
-          digest: "d3"
-          target-environment: "Test_env"
+          digest: "d3"      
           labels:  '["aL1","aL2","aL3"]'
       # invalid Failed
       # - name: '[\"aL1\",\"aL2\",\"aL3\"]'
@@ -61,15 +58,14 @@ jobs:
       #     url: "docker.io/myapp/kcpBldImg:6.0.6"
       #     digest: "d6"
       #     labels: " , "
-      - name: single label
+      - name: apos label
         uses: cloudbees-io/register-build-artifact@CBP-14025
         with:
           name: "kcpBldRegister 7"
           version: "7.0.0"
           url: "docker.io/myapp/kcpBldImg:7.0.7"
           digest: "d7"
-          target-environment: "Test_env"
-          labels: "Hi'Label"
+          labels: "Hi'Label , asda"
       # "message":"label cannot be empty or whitespace"
       # - name: single whitespace label
       #   uses: cloudbees-io/register-build-artifact@CBP-14025
