@@ -11,17 +11,17 @@ jobs:
     steps:
       - name: single label
         with:
-          version: 9.0.0
-          url: docker.io/myapp/kcpImg9:9.0.7
-          digest: d9
-          labels: action , test label 9
-          name: kcpArtRegister 9
+          version: 9.1
+          url: docker.io/myapp/kcpImg91:9.1
+          digest: d91
+          labels: kushal's action , test label 9.1
+          name: kcpArtRegister 9.1
         uses: cloudbees-io/register-build-artifact@v1
       - name: catalog action test
         with:
           version: "10.0"
           url: docker.io/myapp/kcpImg10:10.0.8
           digest: d10
-          labels: " kushal's, actionTest, label    , 10   "
+          labels: " kushal, actionTest, label    , 10   "
           name: kcpBuildRegister 10
         uses: cloudbees-io/register-build-artifact@v1
