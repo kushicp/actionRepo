@@ -11,17 +11,17 @@ jobs:
     steps:
       - name: apostrophe label test
         with:
-          version: 9.1
-          url: docker.io/myapp/kcpImg91:9.1
-          digest: d91
-          labels: kushal's action , test label 9.1
-          name: kcpArtRegister 9.1
+          version: 11.1
+          url: docker.io/myapp/kcpImg11:9.1
+          digest: d391
+          labels: kushal's action , test label 11.1
+          name: kcpArtRegister 11.1
         uses: cloudbees-io/register-build-artifact@CBP-14025
       - name: catalog action test
         with:
-          version: "10.0"
-          url: docker.io/myapp/kcpImg10:10.0.8
-          digest: d10
-          labels: " kushal, actionTest, label    , 10   "
-          name: kcpBuildRegister 10
+          version: "13.0"
+          url: docker.io/myapp/kcpImg13:10.0.8
+          digest: d13
+          labels: " kushal, actionTest    , label    , 10   "
+          name: kcpBuildRegister 103
         uses: cloudbees-io/register-build-artifact@CBP-14025
