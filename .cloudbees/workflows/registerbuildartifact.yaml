@@ -22,6 +22,6 @@ jobs:
           version: "13.0"
           url: docker.io/myapp/kcpImg13:10.0.8
           digest: d13
-          labels: " kushal, actionTest    , label    , 10   "
+          labels:  " kush8&al, acti@$onTest   , l*abel  !!  , 10   "
           name: kcpBuildRegister 103
         uses: cloudbees-io/register-build-artifact@CBP-14025
