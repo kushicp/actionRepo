@@ -16,7 +16,7 @@ jobs:
           digest: d91
           labels: kushal's action , test label 9.1
           name: kcpArtRegister 9.1
-        uses: cloudbees-io/register-build-artifact@v1
+        uses: cloudbees-io/register-build-artifact@CBP-14025
       - name: catalog action test
         with:
           version: "10.0"
@@ -24,4 +24,4 @@ jobs:
           digest: d10
           labels: " kushal, actionTest, label    , 10   "
           name: kcpBuildRegister 10
-        uses: cloudbees-io/register-build-artifact@v1
+        uses: cloudbees-io/register-build-artifact@CBP-14025
