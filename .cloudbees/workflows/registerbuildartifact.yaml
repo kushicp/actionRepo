@@ -8,7 +8,7 @@ jobs:
   build:
     steps:
       - name: label1, Label with space, aLabel!!
-        uses: cloudbees-io/register-deployed-artifact@CBP-12152
+        uses: cloudbees-io/register-build-artifact@CBP-14025
         with:
           name: "kcpBldRegister 0"
           version: "0.0.1"
@@ -17,7 +17,7 @@ jobs:
           target-environment: "Test_env"
           labels: "label1, Label with space, aLabel!!"
       - name: "['aLabel1  ', 'aLabel2', 'aLabel3']"
-        uses: cloudbees-io/register-deployed-artifact@CBP-12152
+        uses: cloudbees-io/register-build-artifact@CBP-14025
         with:
           name: "kcpBldRegister 2"
           version: "2.0.0"
@@ -26,7 +26,7 @@ jobs:
           target-environment: "Test_env"
           labels: "['aLabel1  ', '  aLabel2', '  aLabel3  ']"
       - name: '["aL1","aL2","aL3"]'
-        uses: cloudbees-io/register-deployed-artifact@CBP-12152
+        uses: cloudbees-io/register-build-artifact@CBP-14025
         with:
           name: "kcpBldRegister 3"
           version: "3.0.0"
@@ -36,7 +36,7 @@ jobs:
           labels:  '["aL1","aL2","aL3"]'
       # invalid Failed
       # - name: '[\"aL1\",\"aL2\",\"aL3\"]'
-      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   uses: cloudbees-io/register-build-artifact@CBP-14025
       #   with:
       #     name: "kcpBldRegister 4"
       #     version: "4.0.0"
@@ -45,7 +45,7 @@ jobs:
       #     labels:  '[\"aL1\",\"aL2\",\"aL3\"]'
       # "message":"label cannot be empty or whitespace"
       # - name: empty label and whitespaces
-      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   uses: cloudbees-io/register-build-artifact@CBP-14025
       #   with:
       #     name: "kcpBldRegister 5"
       #     version: "5.0.0"
@@ -54,7 +54,7 @@ jobs:
       #     labels: " ,       Label with space     , aLabel!!    "
       # "message":"label cannot be empty or whitespace"
       # - name: empty labels separated by ,
-      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   uses: cloudbees-io/register-build-artifact@CBP-14025
       #   with:
       #     name: "kcpBldRegister 6"
       #     version: "6.0.0"
@@ -62,7 +62,7 @@ jobs:
       #     digest: "d6"
       #     labels: " , "
       - name: single label
-        uses: cloudbees-io/register-deployed-artifact@CBP-14025
+        uses: cloudbees-io/register-build-artifact@CBP-14025
         with:
           name: "kcpBldRegister 7"
           version: "7.0.0"
@@ -72,7 +72,7 @@ jobs:
           labels: "Hi'Label"
       # "message":"label cannot be empty or whitespace"
       # - name: single whitespace label
-      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   uses: cloudbees-io/register-build-artifact@CBP-14025
       #   with:
       #     name: "kcpBldRegister 8"
       #     version: "8.0.0"
