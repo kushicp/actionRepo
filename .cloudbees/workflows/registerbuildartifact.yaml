@@ -7,39 +7,25 @@ on:
 jobs:
   build:
     steps:
-      - name: label1, Label with space, aLabel!!
-        uses: cloudbees-io/register-build-artifact@CBP-14025
-        with:
-          name: "kcpBldRegister 0"
-          version: "0.0.1"
-          url: "docker.io/myapp/kcpBldImg:0.0.1"
-          digest: "d1"
-          labels: "label1, Label with space, aLabel!!"
-      - name: "['aLabel1  ', 'aLabel2', 'aLabel3']"
-        uses: cloudbees-io/register-build-artifact@CBP-14025
-        with:
-          name: "kcpBldRegister 2"
-          version: "2.0.0"
-          url: "docker.io/myapp/kcpBldImg:2.0.2"
-          digest: "d2"
-          labels: "['aLabel1  ', '  aLabel2', '  aLabel3  ']"
-      - name: '["aL1","aL2","aL3"]'
-        uses: cloudbees-io/register-build-artifact@CBP-14025
-        with:
-          name: "kcpBldRegister 3"
-          version: "3.0.0"
-          url: "docker.io/myapp/kcpBldImg:3.0.3"
-          digest: "d3"      
-          labels:  '["aL1","aL2","aL3"]'
+        - name: '[\"aL1\",\"aL2\",\"aL3\"]'
+          uses: cloudbees-io/register-build-artifact@CBP-14025
+          with:
+            name: "kcpBldRegister 4"
+            version: "4.0.0"
+            url: "docker.io/myapp/kcpBldImg:4.0.4"
+            digest: "d4"
+            labels:  '[\"aL1\",\"aL2\",\"aL3\"]'
+    # invalid character '\\\\'
+      #- name: '["aL1","aL2","aL3"]'
+      #  uses: cloudbees-io/register-build-artifact@CBP-14025
+      #  with:
+      #    name: "kcpBldRegister 3"
+      #    version: "3.0.0"
+      #    url: "docker.io/myapp/kcpBldImg:3.0.3"
+      #    digest: "d3"      
+      #    labels:  '["aL1","aL2","aL3"]'
       # invalid Failed
-      # - name: '[\"aL1\",\"aL2\",\"aL3\"]'
-      #   uses: cloudbees-io/register-build-artifact@CBP-14025
-      #   with:
-      #     name: "kcpBldRegister 4"
-      #     version: "4.0.0"
-      #     url: "docker.io/myapp/kcpBldImg:4.0.4"
-      #     digest: "d4"
-      #     labels:  '[\"aL1\",\"aL2\",\"aL3\"]'
+        
       # "message":"label cannot be empty or whitespace"
       # - name: empty label and whitespaces
       #   uses: cloudbees-io/register-build-artifact@CBP-14025
@@ -58,14 +44,14 @@ jobs:
       #     url: "docker.io/myapp/kcpBldImg:6.0.6"
       #     digest: "d6"
       #     labels: " , "
-      - name: apos label
-        uses: cloudbees-io/register-build-artifact@CBP-14025
-        with:
-          name: "kcpBldRegister 7"
-          version: "7.0.0"
-          url: "docker.io/myapp/kcpBldImg:7.0.7"
-          digest: "d7"
-          labels: "Hi'Label , asda"
+        - name: apos label
+          uses: cloudbees-io/register-build-artifact@CBP-14025
+          with:
+            name: "kcpBldRegister 7"
+            version: "7.0.0"
+            url: "docker.io/myapp/kcpBldImg:7.0.7"
+            digest: "d7"
+            labels: "Hi'Label , asda"
       # "message":"label cannot be empty or whitespace"
       # - name: single whitespace label
       #   uses: cloudbees-io/register-build-artifact@CBP-14025
