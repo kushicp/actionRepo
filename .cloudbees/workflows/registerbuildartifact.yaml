@@ -7,14 +7,7 @@ on:
 jobs:
   build:
     steps:
-        - name: '[\"aL1\",\"aL2\",\"aL3\"]'
-          uses: cloudbees-io/register-build-artifact@CBP-14025
-          with:
-            name: "kcpBldRegister 4"
-            version: "4.0.0"
-            url: "docker.io/myapp/kcpBldImg:4.0.4"
-            digest: "d4"
-            labels:  "[\"aL1\",\"aL2\",\"aL3\"]"
+       
     # invalid character '\\\\'
         - name: "test \"quoted\""
           uses: cloudbees-io/register-build-artifact@CBP-14025
