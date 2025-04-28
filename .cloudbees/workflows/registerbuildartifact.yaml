@@ -14,16 +14,16 @@ jobs:
             version: "4.0.0"
             url: "docker.io/myapp/kcpBldImg:4.0.4"
             digest: "d4"
-            labels:  '[\"aL1\",\"aL2\",\"aL3\"]'
+            labels:  "[\"aL1\",\"aL2\",\"aL3\"]"
     # invalid character '\\\\'
-      #- name: '["aL1","aL2","aL3"]'
-      #  uses: cloudbees-io/register-build-artifact@CBP-14025
-      #  with:
-      #    name: "kcpBldRegister 3"
-      #    version: "3.0.0"
-      #    url: "docker.io/myapp/kcpBldImg:3.0.3"
-      #    digest: "d3"      
-      #    labels:  '["aL1","aL2","aL3"]'
+        - name: "test \"quoted\""
+          uses: cloudbees-io/register-build-artifact@CBP-14025
+          with:
+           name: "kcpBldRegister 3"
+           version: "3.0.0"
+           url: "docker.io/myapp/kcpBldImg:3.0.3"
+           digest: "d3"      
+           labels:  "test \"quoted\""
       # invalid Failed
         
       # "message":"label cannot be empty or whitespace"
