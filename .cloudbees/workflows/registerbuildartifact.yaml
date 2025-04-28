@@ -9,7 +9,7 @@ on:
 jobs:
   buildArtRegTest:
     steps:
-      - name: single label
+      - name: apostrophe label test
         with:
           version: 9.1
           url: docker.io/myapp/kcpImg91:9.1
