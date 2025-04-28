@@ -1,27 +1,81 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: RegisterBuildArtifact
+
 on:
-  push:
-    branches:
-      - "**"
   workflow_dispatch:
 jobs:
-  buildArtRegTest:
+  build:
     steps:
-      - name: apostrophe label test
+      - name: label1, Label with space, aLabel!!
+        uses: cloudbees-io/register-deployed-artifact@CBP-12152
         with:
-          version: 9.1
-          url: docker.io/myapp/kcpImg91:9.1
-          digest: d91
-          labels: kushal's action , test label 9.1
-          name: kcpArtRegister 9.1
-        uses: cloudbees-io/register-build-artifact@CBP-14025
-      - name: catalog action test
+          name: "kcpBldRegister 0"
+          version: "0.0.1"
+          url: "docker.io/myapp/kcpBldImg:0.0.1"
+          digest: "d1"
+          target-environment: "Test_env"
+          labels: "label1, Label with space, aLabel!!"
+      - name: "['aLabel1  ', 'aLabel2', 'aLabel3']"
+        uses: cloudbees-io/register-deployed-artifact@CBP-12152
         with:
-          version: "10.0"
-          url: docker.io/myapp/kcpImg10:10.0.8
-          digest: d10
-          labels: " kushal, actionTest, label    , 10   "
-          name: kcpBuildRegister 10
-        uses: cloudbees-io/register-build-artifact@CBP-14025
+          name: "kcpBldRegister 2"
+          version: "2.0.0"
+          url: "docker.io/myapp/kcpBldImg:2.0.2"
+          digest: "d2"
+          target-environment: "Test_env"
+          labels: "['aLabel1  ', '  aLabel2', '  aLabel3  ']"
+      - name: '["aL1","aL2","aL3"]'
+        uses: cloudbees-io/register-deployed-artifact@CBP-12152
+        with:
+          name: "kcpBldRegister 3"
+          version: "3.0.0"
+          url: "docker.io/myapp/kcpBldImg:3.0.3"
+          digest: "d3"
+          target-environment: "Test_env"
+          labels:  '["aL1","aL2","aL3"]'
+      # invalid Failed
+      # - name: '[\"aL1\",\"aL2\",\"aL3\"]'
+      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   with:
+      #     name: "kcpBldRegister 4"
+      #     version: "4.0.0"
+      #     url: "docker.io/myapp/kcpBldImg:4.0.4"
+      #     digest: "d4"
+      #     labels:  '[\"aL1\",\"aL2\",\"aL3\"]'
+      # "message":"label cannot be empty or whitespace"
+      # - name: empty label and whitespaces
+      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   with:
+      #     name: "kcpBldRegister 5"
+      #     version: "5.0.0"
+      #     url: "docker.io/myapp/kcpBldImg:5.0.5"
+      #     digest: "d5"
+      #     labels: " ,       Label with space     , aLabel!!    "
+      # "message":"label cannot be empty or whitespace"
+      # - name: empty labels separated by ,
+      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   with:
+      #     name: "kcpBldRegister 6"
+      #     version: "6.0.0"
+      #     url: "docker.io/myapp/kcpBldImg:6.0.6"
+      #     digest: "d6"
+      #     labels: " , "
+      - name: single label
+        uses: cloudbees-io/register-deployed-artifact@CBP-14025
+        with:
+          name: "kcpBldRegister 7"
+          version: "7.0.0"
+          url: "docker.io/myapp/kcpBldImg:7.0.7"
+          digest: "d7"
+          target-environment: "Test_env"
+          labels: "Hi'Label"
+      # "message":"label cannot be empty or whitespace"
+      # - name: single whitespace label
+      #   uses: cloudbees-io/register-deployed-artifact@CBP-12152
+      #   with:
+      #     name: "kcpBldRegister 8"
+      #     version: "8.0.0"
+      #     url: "docker.io/myapp/kcpBldImg:8.0.8"
+      #     digest: "d8"
+      #     labels: "   "
