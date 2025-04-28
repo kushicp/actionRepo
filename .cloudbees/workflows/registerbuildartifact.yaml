@@ -17,17 +17,15 @@ jobs:
            url: "docker.io/myapp/kcpBldImg:3.0.3"
            digest: "d3"      
            labels:  "test \"quoted\""
-      # invalid Failed
-        
       # "message":"label cannot be empty or whitespace"
-      # - name: empty label and whitespaces
-      #   uses: cloudbees-io/register-build-artifact@CBP-14025
-      #   with:
-      #     name: "kcpBldRegister 5"
-      #     version: "5.0.0"
-      #     url: "docker.io/myapp/kcpBldImg:5.0.5"
-      #     digest: "d5"
-      #     labels: " ,       Label with space     , aLabel!!    "
+        - name: empty label and whitespaces
+          uses: cloudbees-io/register-build-artifact@CBP-14025
+          with:
+           name: "kcpBldRegister 51"
+           version: "5.0.01"
+           url: "docker.io/myapp/kcpBldIm1g:51.0.51"
+           digest: "d5"
+           labels: "    Label with space     , aLabel!!    "
       # "message":"label cannot be empty or whitespace"
       # - name: empty labels separated by ,
       #   uses: cloudbees-io/register-build-artifact@CBP-14025
@@ -40,11 +38,11 @@ jobs:
         - name: apos label
           uses: cloudbees-io/register-build-artifact@CBP-14025
           with:
-            name: "kcpBldRegister 7"
-            version: "7.0.0"
-            url: "docker.io/myapp/kcpBldImg:7.0.7"
-            digest: "d7"
-            labels: "Hi'Label , asda"
+            name: "kcpBldRegister 998"
+            version: "7.0.012"
+            url: "docker.io/myapp/kcpBldIm21g:7.0.712"
+            digest: "da27"
+            labels: "Hi''Label , as_da"
       # "message":"label cannot be empty or whitespace"
       # - name: single whitespace label
       #   uses: cloudbees-io/register-build-artifact@CBP-14025
