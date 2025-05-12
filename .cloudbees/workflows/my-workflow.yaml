@@ -30,7 +30,7 @@ jobs:
         with:
           provider: github
           repository: cloudbees.io/register-build-artifact
-          ref: v1
+          ref: v1.0.2
         env:
           RUNNER_DEBUG: "1"
       - name: Commit2
@@ -40,8 +40,8 @@ jobs:
           echo "Commit 2:"
           echo "Inputs:"
           echo "  provider: github"
-          echo "  repository: cloudbees.io/label-artifact-version"
-          echo "  ref v1"
+          echo "  repository: cloudbees.io/register-build-artifact"
+          echo "  ref v1.0.2"
           echo Repository URL = ${{ steps.checkout2.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout2.outputs.commit }}
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
