@@ -22,6 +22,8 @@ jobs:
           echo Ref = ${{ steps.checkout1.outputs.ref }}
           echo "==============================================="
           echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
+          echo Cloudbees scm branch = ${{ cloudbees.scm.branch }}
+          echo Cloudbees scm repo = ${{ cloudbees.scm.repository }}
   github-register-build-artifact:
     steps:
       - name: Checkout2
@@ -74,6 +76,8 @@ jobs:
           echo Ref = ${{ steps.checkout3.outputs.ref }}
           echo "==============================================="
           echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
+          echo Cloudbees scm branch = ${{ cloudbees.scm.branch }}
+          echo Cloudbees scm repo = ${{ cloudbees.scm.repository }}
 #  gitlab:
 #    steps:
 #      - name: Checkout4
