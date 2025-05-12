@@ -21,7 +21,7 @@ jobs:
           echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
           echo Ref = ${{ steps.checkout1.outputs.ref }}
           echo "==============================================="
-          echo "Cloudbees scm sha = $ {{ cloudbees.scm.sha }}"
+          echo Cloudbees scm sha = $ {{ cloudbees.scm.sha }}
   github-testRepo:
     steps:
       - name: Checkout2
@@ -29,7 +29,7 @@ jobs:
         id: checkout2
         with:
           provider: github
-          repository: kushicp/actionRepo
+          repository: kushicp/testRepo
           ref: v1
         env:
           RUNNER_DEBUG: "1"
@@ -47,7 +47,7 @@ jobs:
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
           echo Ref = ${{ steps.checkout2.outputs.ref }}
           echo "==============================================="
-          echo "Cloudbees scm sha = $ {{ cloudbees.scm.sha }}"
+          echo Cloudbees scm sha = $ {{ cloudbees.scm.sha }}
   github-anotherrepo-ref:
     steps:
       - name: Checkout3
@@ -72,6 +72,8 @@ jobs:
           echo Commit ID = ${{ steps.checkout3.outputs.commit }}
           echo Commit URL = ${{ steps.checkout3.outputs.commit-url }}
           echo Ref = ${{ steps.checkout3.outputs.ref }}
+          echo "==============================================="
+          echo Cloudbees scm sha = $ {{ cloudbees.scm.sha }}
 #  gitlab:
 #    steps:
 #      - name: Checkout4
