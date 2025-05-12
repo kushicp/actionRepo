@@ -21,7 +21,7 @@ jobs:
           echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
           echo Ref = ${{ steps.checkout1.outputs.ref }}
           echo "==============================================="
-          echo Cloudbees scm sha = $ {{ cloudbees.scm.sha }}
+          echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
   github-testRepo:
     steps:
       - name: Checkout2
@@ -29,7 +29,7 @@ jobs:
         id: checkout2
         with:
           provider: github
-          repository: kushicp/testRepo
+          repository: cloudbees.io/label-artifact-version
           ref: v1
         env:
           RUNNER_DEBUG: "1"
@@ -40,14 +40,14 @@ jobs:
           echo "Commit 2:"
           echo "Inputs:"
           echo "  provider: github"
-          echo "  repository: kushicp/testRepo"
+          echo "  repository: cloudbees.io/label-artifact-version"
           echo "  ref v1"
           echo Repository URL = ${{ steps.checkout2.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout2.outputs.commit }}
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
           echo Ref = ${{ steps.checkout2.outputs.ref }}
           echo "==============================================="
-          echo Cloudbees scm sha = $ {{ cloudbees.scm.sha }}
+          echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
   github-anotherrepo-ref:
     steps:
       - name: Checkout3
@@ -73,7 +73,7 @@ jobs:
           echo Commit URL = ${{ steps.checkout3.outputs.commit-url }}
           echo Ref = ${{ steps.checkout3.outputs.ref }}
           echo "==============================================="
-          echo Cloudbees scm sha = $ {{ cloudbees.scm.sha }}
+          echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
 #  gitlab:
 #    steps:
 #      - name: Checkout4
