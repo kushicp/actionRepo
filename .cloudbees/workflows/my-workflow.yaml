@@ -22,14 +22,14 @@ jobs:
           echo Ref = ${{ steps.checkout1.outputs.ref }}
           echo "==============================================="
           echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
-  github-testRepo:
+  github-register-build-artifact:
     steps:
       - name: Checkout2
         uses: cloudbees-io/checkout@v1
         id: checkout2
         with:
           provider: github
-          repository: cloudbees.io/label-artifact-version
+          repository: cloudbees.io/register-build-artifact
           ref: v1
         env:
           RUNNER_DEBUG: "1"
