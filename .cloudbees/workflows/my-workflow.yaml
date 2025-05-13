@@ -24,32 +24,11 @@ jobs:
           echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
           echo Cloudbees scm branch = ${{ cloudbees.scm.branch }}
           echo Cloudbees scm repo = ${{ cloudbees.scm.repository }}
-  github-register-build-artifact:
-    steps:
-      - name: Checkout2
-        uses: cloudbees-io/checkout@v1
-        id: checkout2
-        with:
-          provider: github
-          repository: cloudbees.io/register-build-artifact
-          ref: v1.0.2
-        env:
-          RUNNER_DEBUG: "1"
-      - name: Commit2
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-          echo "Commit 2:"
-          echo "Inputs:"
-          echo "  provider: github"
-          echo "  repository: cloudbees.io/register-build-artifact"
-          echo "  ref v1.0.2"
-          echo Repository URL = ${{ steps.checkout2.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout2.outputs.commit }}
-          echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
-          echo Ref = ${{ steps.checkout2.outputs.ref }}
-          echo "==============================================="
-          echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
+          echo Cloudbees scm providerURL = ${{ cloudbees.scm.providerURL }}
+          echo Cloudbees scm ctx.repository = ${{ cloudbees.scm.ctx.repository }}
+          echo Cloudbees scm ctx.provider = ${{ cloudbees.scm.ctx.provider }}
+          echo Cloudbees scm cfg.repository = ${{ cloudbees.scm.cfg.repository }}
+          echo Cloudbees scm commit = ${{ cloudbees.scm.commit }}
   github-anotherrepo-ref:
     steps:
       - name: Checkout3
@@ -78,6 +57,11 @@ jobs:
           echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
           echo Cloudbees scm branch = ${{ cloudbees.scm.branch }}
           echo Cloudbees scm repo = ${{ cloudbees.scm.repository }}
+          echo Cloudbees scm providerURL = ${{ cloudbees.scm.providerURL }}
+          echo Cloudbees scm ctx.repository = ${{ cloudbees.scm.ctx.repository }}
+          echo Cloudbees scm ctx.provider = ${{ cloudbees.scm.ctx.provider }}
+          echo Cloudbees scm cfg.repository = ${{ cloudbees.scm.cfg.repository }}
+          echo Cloudbees scm commit = ${{ cloudbees.scm.commit }}
 #  gitlab:
 #    steps:
 #      - name: Checkout4
