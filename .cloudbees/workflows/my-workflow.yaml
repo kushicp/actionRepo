@@ -24,7 +24,6 @@ jobs:
           echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
           echo Cloudbees scm branch = ${{ cloudbees.scm.branch }}
           echo Cloudbees scm repo = ${{ cloudbees.scm.repository }}
-          echo Cloudbees scm commit = ${{ cloudbees.scm.commit }}
           echo Cloudbees scm ref = ${{ cloudbees.scm.ref }}
           echo Cloudbees scm Repository URL = ${{ cloudbees.scm.repositoryUrl }}
           echo Cloudbees scm provider_url = ${{ cloudbees.scm.provider_url }}
@@ -60,7 +59,6 @@ jobs:
           echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
           echo Cloudbees scm branch = ${{ cloudbees.scm.branch }}
           echo Cloudbees scm repo = ${{ cloudbees.scm.repository }}
-          echo Cloudbees scm commit = ${{ cloudbees.scm.commit }}
           echo Cloudbees scm ref = ${{ cloudbees.scm.ref }}
           echo Cloudbees scm Repository URL = ${{ cloudbees.scm.repositoryUrl }}
           echo Cloudbees scm provider_url = ${{ cloudbees.scm.provider_url }}
