@@ -11,10 +11,6 @@ jobs:
         shell: sh
         run: |
           echo "Commit 1:"
-          echo Repository URL = ${{ steps.checkout1.outputs.repository-url }}
-          echo Commit ID = ${{ steps.checkout1.outputs.commit }}
-          echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
-          echo Ref = ${{ steps.checkout1.outputs.ref }}
           echo "==============================================="
           echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
           echo Cloudbees scm branch = ${{ cloudbees.scm.branch }}
