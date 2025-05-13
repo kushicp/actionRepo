@@ -6,6 +6,22 @@ on:
 jobs:
   github:
     steps:
+      - name: pre-checkout
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Commit 1:"
+          echo Repository URL = ${{ steps.checkout1.outputs.repository-url }}
+          echo Commit ID = ${{ steps.checkout1.outputs.commit }}
+          echo Commit URL = ${{ steps.checkout1.outputs.commit-url }}
+          echo Ref = ${{ steps.checkout1.outputs.ref }}
+          echo "==============================================="
+          echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
+          echo Cloudbees scm branch = ${{ cloudbees.scm.branch }}
+          echo Cloudbees scm repo = ${{ cloudbees.scm.repository }}
+          echo Cloudbees scm ref = ${{ cloudbees.scm.ref }}
+          echo Cloudbees scm Repository URL = ${{ cloudbees.scm.repositoryUrl }}
+          echo Cloudbees scm provider_url = ${{ cloudbees.scm.provider_url }}
       - name: Checkout1
         uses: cloudbees-io/checkout@v1
         id: checkout1
