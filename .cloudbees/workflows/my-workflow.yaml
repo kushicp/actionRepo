@@ -24,11 +24,14 @@ jobs:
           echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
           echo Cloudbees scm branch = ${{ cloudbees.scm.branch }}
           echo Cloudbees scm repo = ${{ cloudbees.scm.repository }}
-          echo Cloudbees scm providerURL = ${{ cloudbees.scm.providerURL }}
-          echo Cloudbees scm ctx.repository = ${{ cloudbees.scm.ctx.repository }}
-          echo Cloudbees scm ctx.provider = ${{ cloudbees.scm.ctx.provider }}
-          echo Cloudbees scm cfg.repository = ${{ cloudbees.scm.cfg.repository }}
           echo Cloudbees scm commit = ${{ cloudbees.scm.commit }}
+          echo Cloudbees scm ref = ${{ cloudbees.scm.ref }}
+          echo Cloudbees scm Repository URL = ${{ cloudbees.scm.repositoryUrl }}
+          echo Cloudbees scm provider_url = ${{ cloudbees.scm.provider_url }}
+          echo Cloudbees scm ctx.repository = ${{ cloudbees.ctx.repository }}
+          echo Cloudbees scm ctx.provider = ${{ cloudbees.ctx.provider }}
+          echo Cloudbees scm cfg.repository = ${{ cloudbees.cfg.repository }}
+          
   github-anotherrepo-ref:
     steps:
       - name: Checkout3
@@ -57,11 +60,13 @@ jobs:
           echo Cloudbees scm sha = ${{ cloudbees.scm.sha }}
           echo Cloudbees scm branch = ${{ cloudbees.scm.branch }}
           echo Cloudbees scm repo = ${{ cloudbees.scm.repository }}
-          echo Cloudbees scm providerURL = ${{ cloudbees.scm.providerURL }}
-          echo Cloudbees scm ctx.repository = ${{ cloudbees.scm.ctx.repository }}
-          echo Cloudbees scm ctx.provider = ${{ cloudbees.scm.ctx.provider }}
-          echo Cloudbees scm cfg.repository = ${{ cloudbees.scm.cfg.repository }}
           echo Cloudbees scm commit = ${{ cloudbees.scm.commit }}
+          echo Cloudbees scm ref = ${{ cloudbees.scm.ref }}
+          echo Cloudbees scm Repository URL = ${{ cloudbees.scm.repositoryUrl }}
+          echo Cloudbees scm provider_url = ${{ cloudbees.scm.provider_url }}
+          echo Cloudbees scm ctx.repository = ${{ cloudbees.ctx.repository }}
+          echo Cloudbees scm ctx.provider = ${{ cloudbees.ctx.provider }}
+          echo Cloudbees scm cfg.repository = ${{ cloudbees.cfg.repository }}
 #  gitlab:
 #    steps:
 #      - name: Checkout4
