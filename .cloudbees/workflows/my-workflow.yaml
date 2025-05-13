@@ -27,10 +27,9 @@ jobs:
           echo Cloudbees scm ref = ${{ cloudbees.scm.ref }}
           echo Cloudbees scm Repository URL = ${{ cloudbees.scm.repositoryUrl }}
           echo Cloudbees scm provider_url = ${{ cloudbees.scm.provider_url }}
-          echo Cloudbees scm ctx.repository = ${{ ctx.repository }}
-          echo Cloudbees scm ctx.provider = ${{ ctx.provider }}
-          echo Cloudbees scm cfg.repository = ${{ cfg.repository }}
-          
+#          echo Cloudbees scm ctx.repository = ${{ ctx.repository }}
+#          echo Cloudbees scm ctx.provider = ${{ ctx.provider }}
+#          echo Cloudbees scm cfg.repository = ${{ cfg.repository }}   
   github-anotherrepo-ref:
     steps:
       - name: Checkout3
@@ -42,11 +41,11 @@ jobs:
           ref: 5991d1070a23ed3e5343218e6a0e8b79ce8a174c
         env:
           RUNNER_DEBUG: "1"
-      - name: Commit3
+      - name: Commit2
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Commit 3:"
+          echo "Commit 2:"
           echo "Inputs:"
           echo "  provider: github"
           echo "  repository: rthomascb/anotherrepo"
@@ -62,9 +61,7 @@ jobs:
           echo Cloudbees scm ref = ${{ cloudbees.scm.ref }}
           echo Cloudbees scm Repository URL = ${{ cloudbees.scm.repositoryUrl }}
           echo Cloudbees scm provider_url = ${{ cloudbees.scm.provider_url }}
-          echo Cloudbees scm ctx.repository = ${{ ctx.repository }}
-          echo Cloudbees scm ctx.provider = ${{ ctx.provider }}
-          echo Cloudbees scm cfg.repository = ${{ cfg.repository }}
+
 #  gitlab:
 #    steps:
 #      - name: Checkout4
