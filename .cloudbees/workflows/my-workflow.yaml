@@ -27,9 +27,9 @@ jobs:
           echo Cloudbees scm ref = ${{ cloudbees.scm.ref }}
           echo Cloudbees scm Repository URL = ${{ cloudbees.scm.repositoryUrl }}
           echo Cloudbees scm provider_url = ${{ cloudbees.scm.provider_url }}
-          echo Cloudbees scm ctx.repository = ${{ cloudbees.ctx.repository }}
-          echo Cloudbees scm ctx.provider = ${{ cloudbees.ctx.provider }}
-          echo Cloudbees scm cfg.repository = ${{ cloudbees.cfg.repository }}
+          echo Cloudbees scm ctx.repository = ${{ ctx.repository }}
+          echo Cloudbees scm ctx.provider = ${{ ctx.provider }}
+          echo Cloudbees scm cfg.repository = ${{ cfg.repository }}
           
   github-anotherrepo-ref:
     steps:
@@ -62,9 +62,9 @@ jobs:
           echo Cloudbees scm ref = ${{ cloudbees.scm.ref }}
           echo Cloudbees scm Repository URL = ${{ cloudbees.scm.repositoryUrl }}
           echo Cloudbees scm provider_url = ${{ cloudbees.scm.provider_url }}
-          echo Cloudbees scm ctx.repository = ${{ cloudbees.ctx.repository }}
-          echo Cloudbees scm ctx.provider = ${{ cloudbees.ctx.provider }}
-          echo Cloudbees scm cfg.repository = ${{ cloudbees.cfg.repository }}
+          echo Cloudbees scm ctx.repository = ${{ ctx.repository }}
+          echo Cloudbees scm ctx.provider = ${{ ctx.provider }}
+          echo Cloudbees scm cfg.repository = ${{ cfg.repository }}
 #  gitlab:
 #    steps:
 #      - name: Checkout4
