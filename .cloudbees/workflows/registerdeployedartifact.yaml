@@ -12,20 +12,23 @@ jobs:
   publishArtifact:
     steps:
       - name: Register published artifact
-        id: publish
+        id: publishArtifact
         uses: cloudbees-io/register-build-artifact@v1
         with:
           name: "testArtifactRegister"
           version: "1.1.0"
           url: "docker.io/MyKcpApp/testArtifactRegister:1.1.0"
           digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3644"
-      - name: Artifact Details
-        id: artifactDetails
-        uses: docker://golang:1.20.3-alpine3.17
-        shell: sh
-        run: |
-            echo "Artifact details:" 
-            echo "name: ${{ steps.publish.inputs.name }}"
-            echo "name: ${{ steps.publish.inputs.version }}"
-
+  deployArtifact:
+    environment: "${{ inputs.environment }}"
+    steps:
+      - name: Register deployed artifact
+        id: deployArtifact
+        uses: cloudbees-io/register-deployed-artifact@main
+        with:
+          name: "testArtifactRegister"
+          version: "1.1.0"
+          url: "docker.io/MyKcpApp/testArtifactRegister:1.1.0"
+        #  digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3644"
+    needs: publishArtifact
  
