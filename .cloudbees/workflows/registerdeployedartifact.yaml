@@ -7,7 +7,7 @@ on:
       environment:
         type: string
         required: true
-        default: "kcp-env"
+        default: "Test-env"
 jobs:
 #  publishArtifact:
 #    steps:
