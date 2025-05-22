@@ -24,8 +24,8 @@ jobs:
         shell: sh
         run: |
             echo "Artifact details:" 
-            echo "name: ${{ publishArtifact.steps.publish.name }}"
-            echo "name: ${{ publishArtifact.steps.publish.version }}"
+            echo "name: ${{ job.publishArtifact.steps.publish.name }}"
+            echo "name: ${{ job.publishArtifact.steps.publish.version }}"
 
   deployArtifact:
     environment: ${{ inputs.environment }}
@@ -33,7 +33,7 @@ jobs:
       - name: Inform system that an artifact version was deployed
         uses: cloudbees-io/register-deployed-artifact@main 
         with:
-          name: "${{ publishArtifact.steps.publish.name }}"
-          version: "${{ publishArtifact.steps.publish.version }}"
-          url: "docker.io/MyKcpApp/${{ publishArtifact.steps.publish.name }}:${{ publishArtifact.steps.publish.version }}" # Remove this once Action updated
+          name: "${{ job.publishArtifact.steps.publish.name }}"
+          version: "${{ job.publishArtifact.steps.publish.version }}"
+          url: "docker.io/MyKcpApp/${{ job.publishArtifact.steps.publish.name }}:${{ job.publishArtifact.steps.publish.version }}" # Remove this once Action updated
           #target-environment: "${{ inputs.environment }}"
