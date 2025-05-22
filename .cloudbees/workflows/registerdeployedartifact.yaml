@@ -24,8 +24,8 @@ jobs:
         shell: sh
         run: |
             echo "Artifact details:" 
-            echo "name: ${{ job.publishArtifact.steps.publish.name }}"
-            echo "name: ${{ job.publishArtifact.steps.publish.version }}"
+            echo "name: ${{ steps.publish.inputs.name }}"
+            echo "name: ${{ steps.publish.inputs.version }}"
 
   deployArtifact:
     environment: ${{ inputs.environment }}
