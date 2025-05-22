@@ -9,16 +9,16 @@ on:
         required: true
         default: "kcp-env"
 jobs:
-  publishArtifact:
-    steps:
-      - name: Register published artifact
-        id: publishArtifact
-        uses: cloudbees-io/register-build-artifact@v1
-        with:
-          name: "testArtifactRegister"
-          version: "1.1.0"
-          url: "docker.io/MyKcpApp/testArtifactRegister:1.1.0"
-          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3644"
+#  publishArtifact:
+#    steps:
+#      - name: Register published artifact
+#        id: publishArtifact
+#        uses: cloudbees-io/register-build-artifact@v1
+#        with:
+#          name: "testArtifactRegister"
+#          version: "1.1.0"
+#          url: "docker.io/MyKcpApp/testArtifactRegister:1.1.0"
+#          digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3644"
   deployArtifact:
     environment: "${{ inputs.environment }}"
     steps:
@@ -30,5 +30,5 @@ jobs:
           version: "1.1.0"
           url: "docker.io/MyKcpApp/testArtifactRegister:1.1.0"
         #  digest: "sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3644"
-    needs: publishArtifact
+#    needs: publishArtifact
  
