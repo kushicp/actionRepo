@@ -13,12 +13,17 @@ jobs:
           url: docker.io/myapp/kcpImg14:14.0.9
           digest: d149
           labels:  "lbl1"
-          name: kcpBuildRegister 149
+          name: kcpBuildRegister 14
         uses: cloudbees-io/register-build-artifact@CBP-15450
+      - name: Artifact Id output
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Output param: ${{ steps.registerBuildArtifact.outputs.artifact-id }}"
   artifactIdOutput:
     steps:
       - name: Print output param
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Output param: ${{ jobs.registerBuildArtifact.outputs.artifact-id }}"
+          echo "Output param: ${{ jobs.buildArtRegTest.outputs.artifact-id }}"
