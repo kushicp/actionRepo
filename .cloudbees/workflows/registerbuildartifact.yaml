@@ -15,16 +15,16 @@ jobs:
           labels:  "lbl1"
           name: kcpBuildRegister 142
         uses: cloudbees-io/register-build-artifact@CBP-15450
- #     - name: Artifact Id output
- #       uses: docker://golang:1.20.3-alpine3.17
- #       shell: sh
- #       run: |
- #         echo "Output param: ${{ steps.registerBuildArtifact.outputs.artifact-id }}"
-  artifactIdOutput:
-    steps:
-      - name: Print output param
+      - name: Artifact Id output
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Output params: ${{ needs.buildArtRegTest.outputs.artifact-id }}"
-    needs: buildArtRegTest
+          echo "Output param: ${{ steps.registerBuildArtifact.outputs.artifact-id }}"
+#  artifactIdOutput:
+#    steps:
+#      - name: Print output param
+#        uses: docker://golang:1.20.3-alpine3.17
+#        shell: sh
+#        run: |
+#          echo "Output params: ${{ needs.buildArtRegTest.outputs.artifact-id }}"
+#    needs: buildArtRegTest
