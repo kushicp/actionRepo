@@ -2,26 +2,21 @@ apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: RegisterBuildArtifact
 on:
-  push:
-    branches:
-      - "**"
   workflow_dispatch:
 jobs:
   buildArtRegTest:
     steps:
-      - name: apostrophe label test
+      - id: registerBuildArtifact
+        name: catalog action test
         with:
-          version: 11.1
-          url: docker.io/myapp/kcpImg11:9.1
-          digest: d391
-          labels: kushal's action , test label 11.1
-          name: kcpArtRegister 11.1
-        uses: cloudbees-io/register-build-artifact@CBP-14025
-      - name: catalog action test
-        with:
-          version: "13.0"
-          url: docker.io/myapp/kcpImg13:10.0.8
-          digest: d13
-          labels:  " kush8&al, acti@$onTest   , l*abel  !!  , 10   "
-          name: kcpBuildRegister 103
-        uses: cloudbees-io/register-build-artifact@CBP-14025
+          version: "14.0"
+          url: docker.io/myapp/kcpImg14:14.0.8
+          digest: d14
+          labels:  "lbl1"
+          name: kcpBuildRegister 14
+        uses: cloudbees-io/register-build-artifact@CBP-15450
+      - name: Artifact Id output
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "Output param: ${{ steps.registerBuildArtifact.outputs.id }}"
