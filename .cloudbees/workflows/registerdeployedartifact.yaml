@@ -10,7 +10,7 @@ on:
         required: true
 jobs:
   deployArtifact:
-    environment: ${{ inputs.Test_env }}
+    environment: ${{ inputs.env }}
     steps:
       - name: Register deployed artifact
         id: deployArtifact
