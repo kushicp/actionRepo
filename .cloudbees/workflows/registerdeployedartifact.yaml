@@ -9,14 +9,40 @@ on:
         default: Test_env
         required: true
 jobs:
-  deployArtifact:
-    environment: Test_env
+  publishArtifact:
+    environment: ${{ inputs.env }}
     steps:
       - name: Register deployed artifact
         id: deployArtifact
-        uses: cloudbees-io/register-deployed-artifact@main
+        uses: cloudbees-io/register-build-artifact@v1
         with:
-          name: testDeploymentRegister3
-          version: 3.0.0
-          url: docker.io/MyKcpApp/testDeploymentRegister3:3.0.0
-          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3633
+          name: testArtifactRegister2
+          version: 2.0.0
+          url: docker.io/MyKcpApp/testArtifactRegister:2.0.0
+          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b36342
+  deployArtifact1:
+    environment: ${{ inputs.env }}
+    steps:
+      - name: Register deployed artifact
+        with:
+          version: 2.0.0
+          url: docker.io/MyKcpApp/testArtifactRegister:2.0.0
+          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b36342
+          action-name: testArtifactRegister2
+        uses: cloudbees-io/register-deployed-artifact@main
+        id: deployArtifact1
+    needs:
+      - publishArtifact
+  deployArtifact2:
+    environment: kcp-env
+    steps:
+      - name: Register deployed artifact
+        with:
+          version: 2.0.0
+          url: docker.io/MyKcpApp/testArtifactRegister:2.0.0
+          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b36342
+          action-name: testArtifactRegister2
+        uses: cloudbees-io/register-deployed-artifact@main
+        id: deployArtifact2
+    needs:
+      - deployArtifact1
