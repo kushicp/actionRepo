@@ -8,9 +8,8 @@ jobs:
   success_add_labels_to_artifact_ver:
     steps:
       - name: success_add_labels_to_artifact_ver
-        uses: cloudbees-io/label-artifact-version@CBP-12420
+        uses: cloudbees-io/label-artifact-version@CBP-15766
         with:
-          component-id: "065b2595-cd1e-415d-9c5b-cab06074b641"
-          artifact-id: "f089759c-9a6c-4c5b-befb-d70ca006625c"
-          labels: "Replaced, other labels"
-          operation: "REPLACE"
+          artifact-id: "79d1fa4d-b7bf-47bf-b767-9879b5223ae9"
+          labels: "Added, new labels"
+          operation: "ADD"
