@@ -10,6 +10,6 @@ jobs:
       - name: success_add_labels_to_artifact_ver
         uses: cloudbees-io/label-artifact-version@CBP-15766
         with:
-          artifact-id: "79d1fa4d-b7bf-47bf-b767-9879b5223ae9"
+          artifact-id: "e598175c-e2e5-4bb9-a440-65188213bfaa" # python-hello-world
           labels: "Added, new labels"
           operation: "ADD"
