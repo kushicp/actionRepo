@@ -12,4 +12,5 @@ jobs:
         with:
           artifact-id: "ea07033d-3008-40ec-9e50-a0efce7493d8" # testArtRegister121
           labels: "Added, new labels, Again!"
+          operation: "REMOVE"
           
