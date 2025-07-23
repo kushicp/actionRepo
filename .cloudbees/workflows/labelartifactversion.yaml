@@ -11,6 +11,7 @@ jobs:
         uses: cloudbees-io/label-artifact-version@CBP-15766
         with:
           artifact-id: "ea07033d-3008-40ec-9e50-a0efce7493d8" # testArtRegister121
-          labels: "   dfa,#$%^,[]label,tra    ,(){}[]braces"
-          operation: "REMOVE"
+          #labels: "   dfa,#$%^,[]label,tra    ,(){}[]braces"
+          labels: "A b , cd,e\\,f"
+          operation: "ADD"
           
