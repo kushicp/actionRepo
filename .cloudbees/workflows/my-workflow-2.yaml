@@ -7,18 +7,16 @@ jobs:
   getDetails:
     steps:
       - name: getArtifactDetails
+        id: getArtifactDetails
         uses: cloudbees-io/get-artifact-details@CBP-20956
         with:
           artifact-id: ea07033d-3008-40ec-9e50-a0efce7493d8
-  print_details:
-    steps:
       - name: Print artifact details output 
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Output from getArtifactDetails: ${{ needs.getDetails.outputs }}"
-          echo "name: ${{ needs.getDetails.outputs.name }}"
-          echo "version: ${{ needs.getDetails.outputs.version }}"
-          echo "url: ${{ needs.getDetails.outputs.url }}"
-          echo "digest: ${{ needs.getDetails.outputs.digest }}"
-    needs: getDetails
+          echo "Output from getArtifactDetails: "
+          echo "name: ${{ steps.getArtifactDetails.outputs.name }}"
+          echo "version: ${{ steps.getArtifactDetails.outputs.version }}"
+          echo "url: ${{ steps.getArtifactDetails.outputs.url }}"
+          echo "digest: ${{ steps.getArtifactDetails.outputs.digest }}"
