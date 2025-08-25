@@ -1,0 +1,28 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: test get-artifact-details
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    steps:
+      - name: publish
+        id: publish
+        with:
+          version: 1.0-${{ cloudbees.version }}
+          url: kcp.com/mycompany/art1/1.0-${{ cloudbees.version }}
+          digest: ${{ cloudbees.scm.sha }}
+          name: art1
+        uses: cloudbees-io/register-build-artifact@v1
+      - name: look up
+        id: get
+        with:
+          artifact-id: ${{ steps.publish.outputs.artifact-id }}
+        uses: cloudbees-io/get-artifact-details@main
+      - name: echo
+        run: |
+          echo name: ${{ steps.get.outputs.name }}
+          echo version: ${{ steps.get.outputs.version }}
+          echo url: ${{ steps.get.outputs.url }}
+          echo digest: ${{ steps.get.outputs.digest }}
+        uses: docker://golang:1.20.3-alpine3.17
