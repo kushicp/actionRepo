@@ -16,7 +16,7 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "Output from custom job:"
+          echo "Output from getArtifactDetails: ${{ needs.getDetails.outputs }}"
           echo "name: ${{ needs.getDetails.outputs.name }}"
           echo "version: ${{ needs.getDetails.outputs.version }}"
           echo "url: ${{ needs.getDetails.outputs.url }}"
