@@ -9,37 +9,21 @@ on:
         default: Test_env
         required: true
 jobs:
-  publishArtifact:
-    steps:
-      - name: Register published artifact
-        id: publishArtifact
-        uses: cloudbees-io/register-build-artifact@v1
-        with:
-          name: testArtRegister121
-          version: 1.2.1
-          url: docker.io/MyKcpApp/testArtRegister121:1.2.1
-          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3121
+  #publishArtifact:
+   # steps:
+   #   - name: Register published artifact
+   #     id: publishArtifact
+   #     uses: cloudbees-io/register-build-artifact@v1
+   #     with:
+   #       name: testArtRegister121
+   #       version: 1.2.1
+   #       url: docker.io/MyKcpApp/testArtRegister121:1.2.1
+   #       digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3121
   deployArtifact1:
     environment: ${{ inputs.env }}
     steps:
       - name: Register deployed artifact
         id: deployArtifact1
-        uses: cloudbees-io/register-deployed-artifact@main
+        uses: cloudbees-io/register-deployed-artifact@v2
         with:
-          name: testArtRegister121
-          version: 1.2.1
-          url: docker.io/MyKcpApp/testArtRegister121:1.2.1
-          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3121
-    needs: publishArtifact
-  deployArtifact2:
-    environment: kcp-test-env
-    steps:
-      - name: Register deployed artifact
-        id: deployArtifact
-        uses: cloudbees-io/register-deployed-artifact@main
-        with:
-          name: testArtRegister121
-          version: 1.2.1
-          url: docker.io/MyKcpApp/testArtRegister121:1.2.1
-          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3121
-    needs: publishArtifact
+          artifact-id: a520ff17-e1ae-4a92-97f5-9a2017f0cc37
