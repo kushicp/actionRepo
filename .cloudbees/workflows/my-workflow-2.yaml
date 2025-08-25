@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Get Artifact Details
         id: getArtifactDetails
-        uses: cloudbees-io/get-artifact-details@CBP-20963
+        uses: cloudbees-io/get-artifact-details@main
         with:
           artifact-id: ea07033d-3008-40ec-9e50-a0efce7493d8
       - name: Print artifact details
