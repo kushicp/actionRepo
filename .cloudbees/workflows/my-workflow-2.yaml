@@ -21,3 +21,10 @@ jobs:
           echo "version: ${{ steps.getArtifactDetails.outputs.version }}"
           echo "url: ${{ steps.getArtifactDetails.outputs.url }}"
           echo "digest: ${{ steps.getArtifactDetails.outputs.digest }}"
+  get2:
+    steps:
+      - name: get2
+        with:
+          artifact-id: ea07033d-3008-40ec-9e50-a0efce7493d8
+        uses: cloudbees-io/get-artifact-details@v1
+    needs: getArtifactDetailsAndPrint
