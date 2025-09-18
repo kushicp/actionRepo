@@ -10,7 +10,7 @@ jobs:
         uses: cloudbees-io/label-artifact-version@CBP-22170
         with:
           artifact-id: ea07033d-3008-40ec-9e50-a0efce7493d8
-          labels: "   dfa,#$%^,[]label,tra    ,(){}[]braces, g/h"
+          labels: "hello, welcome,   dfa,#$%^,[]label,tra    ,(){}[]braces, g/h"
           operation: ADD
   remove_labels_from_artifact_ver:
     steps:
