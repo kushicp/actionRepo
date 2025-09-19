@@ -15,10 +15,10 @@ jobs:
         id: publishArtifact
         uses: cloudbees-io/register-build-artifact@v1
         with:
-          name: testArtRegister212
-          version: 2.1.2
-          url: docker.io/MyKcpApp/testArtRegister212:2.1.2
-          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e3b3212
+          name: testArtRegister2121
+          version: 2.1.21
+          url: docker.io/MyKcpApp/testArtRegister212:2.1.21
+          digest: sha256:5e0687d9471728b0a200e0a3840fa16466150c58f628dc6e6c40a9b07e313212
   #deployArtifact1:
   #  environment: ${{ inputs.env }}
   #  steps:
