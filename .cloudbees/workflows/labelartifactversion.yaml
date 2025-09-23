@@ -7,9 +7,9 @@ jobs:
   add_labels_to_artifact_ver:
     steps:
       - name: success_add_labels_to_artifact_ver
-        uses: cloudbees-io/label-artifact-version@v1
+        uses: cloudbees-io/label-artifact-version@refactor
         with:
-          artifact-id: ea07033d-3008-40ec-9e50-a0efce7493d8
+          artifact-id: ea07033d-3008-40ec
           labels: "hello, welcome,   dfa,#$%^,[]label,tra    ,(){}[]braces, g/h"
           operation: ADD
   remove_labels_from_artifact_ver:
@@ -19,6 +19,6 @@ jobs:
           artifact-id: ea07033d-3008-40ec-9e50-a0efce7493d8
           labels: "   dfa,#$%^,[]label,tra    ,(){}[]braces"
           operation: REMOVE
-        uses: cloudbees-io/label-artifact-version@v1
+        uses: cloudbees-io/label-artifact-version@refactor
     needs:
       - add_labels_to_artifact_ver
