@@ -9,8 +9,8 @@ jobs:
       - name: publish
         id: publish
         with:
-          version: 1.0-${{ cloudbees.version }}
-          url: kcp.com/mycompany/art1/1.0-${{ cloudbees.version }}
+          version: 1.0.99
+          url: kcp.com/mycompany/art1/1.0.99
           digest: ${{ cloudbees.scm.sha }}
           name: art1
         uses: cloudbees-io/register-build-artifact@v1
