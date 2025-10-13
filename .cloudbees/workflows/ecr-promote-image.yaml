@@ -1,0 +1,26 @@
+name: ecr-promote-image
+kind: workflow
+apiVersion: automation.cloudbees.io/v1alpha1
+
+on:
+  workflow_dispatch:
+      
+jobs:
+  ec2-promote-image-job:
+    steps:
+      - name: Configure aws credentials
+        uses: cloudbees-io/configure-aws-credentials@v1
+        with:
+          aws-region: us-east-1
+          aws-access-key-id: ${{ secrets.TEST_AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.TEST_AWS_SECRET_KEY }}
+          aws-session-token: ${{ secrets.TEST_AWS_SESSION_TOKEN }}
+      
+      - name: ecr promote image 
+        uses: cloudbees-io/ecr-promote-image@v1
+        with:
+           registry-url: 020229604682.dkr.ecr.us-east-1.amazonaws.com
+           source-repository-name: actions/trufflehog-secret-actions
+           target-repository-name: throwaway/actions/trufflehog-secret-actions
+           source-tag: 'CBP-1914-401e607a2c93dc136a6db5e84ae31ce46a276c5c'
+           target-tag: 'promote-test'
