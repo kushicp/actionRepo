@@ -22,5 +22,5 @@ jobs:
            registry-url: 020229604682.dkr.ecr.us-east-1.amazonaws.com
            source-repository-name: actions/trufflehog-secret-actions
            target-repository-name: throwaway/actions/trufflehog-secret-actions
-           source-tag: 'CBP-1914-401e607a2c93dc136a6db5e84ae31ce46a276c5c'
-           target-tag: 'promote-test'
+           source-tag: 'preprod, CBP-20772-44da25aa10b5187806d9c22af9b6908f10b69644'
+           target-tag: 'kcp-promote-test-20772'
