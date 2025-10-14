@@ -1,0 +1,43 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: mappr-reus-wf
+
+on:
+  workflow_call:
+    inputs:
+      instructions:
+        type: string
+        required: true
+      assignee:
+        type: choice
+        options:
+          - Demoers
+        required: true
+
+jobs:
+  approval:
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
+    timeout-minutes: 1440
+    with:
+      instructions: ${{ inputs.instructions }}
+      disallowLaunchByUser: false
+      approvers: ${{ inputs.assignee }}
+      notifyAllEligibleUsers: false
+      approvalInputs: |
+        success:
+          type: boolean
+          default: false
+          required: true
+          description: Did it succeed?
+        details:
+          type: string
+          description: Provide details
+  package:
+    needs: approval
+    steps:
+      - name: Test outputs
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "${{fromJSON(needs.approval.outputs.approvalInputValues).success}}"
+          echo "${{fromJSON(needs.approval.outputs.approvalInputValues).details}}"
