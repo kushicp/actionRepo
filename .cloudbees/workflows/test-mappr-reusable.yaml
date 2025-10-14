@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   caller:
-    uses: ./manual-test-wf.yaml
+    uses: kushicp/actionRepo/manual-test-wf.yaml
     #uses: .cloudbees/workflows/mappr-reus-wf.yaml
     with:
       instructions: "Kushal says..."
