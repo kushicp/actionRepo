@@ -6,7 +6,7 @@ on:
 jobs:
   caller:
     # uses: ./manual-test-wf.yaml
-    uses: ./.cloudbees/workflows/mappr-reus-wf.yaml
+    uses: .cloudbees/workflows/mappr-reus-wf.yaml
     with:
       instructions: "Kushal says..."
       assignee: "Demoers"
