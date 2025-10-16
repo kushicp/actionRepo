@@ -7,7 +7,7 @@ jobs:
       - name: checkout-source-code
         uses: cloudbees-io/checkout@v1
       - name: Jfrog artifactory promote image
-        uses: cloudbees-io/jfrog-artifactory-promote-image@v1
+        uses: cloudbees-io/jfrog-artifactory-promote-image@CBP-22774
         with:
           url: ${{ vars.JFROG_URL }}
           username: ${{ vars.JFROG_ACTIONS_USERNAME }}
