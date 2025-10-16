@@ -1,0 +1,29 @@
+name: jfrog-artifactory-promote-image
+kind: workflow
+apiVersion: automation.cloudbees.io/v1alpha1
+on:
+  push:
+    branches:
+      - main
+jobs:
+  jfrog-artifactory-promote-image-job:
+    steps:
+      - name: checkout-source-code
+        uses: cloudbees-io/checkout@v1
+      - name: Jfrog artifactory promote image
+        uses: cloudbees-io/jfrog-artifactory-promote-image@v1
+        with:
+          url: ${{ vars.JFROG_URL }}
+          username: ${{ vars.JFROG_ACTIONS_USERNAME }}
+          password: ${{ secrets.JFROG_ACTIONS_PASSWORD }}
+          source-repository-name: jfrog-xray-test
+          target-repository-name: jfrog-test-docker-target-repo
+          source-image-name: test-image
+          source-tag: 1.0.0
+          copy: "true"
+      - name: Notify failures
+        if: ${{ failure() }}
+        uses: ./actions/notify-slack-action
+        with:
+          webhook-url: ${{ secrets.CBP_BT_SLACK_WEBHOOK_URL }}
+          action-name: jfrog-artifactory-promote-image
