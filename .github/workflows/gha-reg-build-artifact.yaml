@@ -9,14 +9,6 @@ jobs:
     permissions:
       id-token: write
     steps:
-      # iniitialize connection to aws
-      - id: login
-        name: Configure aws credentials
-        uses: cloudbees-io/configure-aws-credentials@v1
-        with:
-          aws-region: us-east-1
-          aws-access-key-id: ${{ secrets.CB_ACTIONS_TEST_AWS_ACCESS_KEY }}
-          aws-secret-access-key: ${{ secrets.CB_ACTIONS_TEST_AWS_SECRET_KEY }}
       - name: Register Build Artifacts in Cloudbees Platform
         uses: cloudbees-io-gha/register-build-artifact@CBP-22787
         id: go-action
