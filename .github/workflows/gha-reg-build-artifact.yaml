@@ -1,0 +1,21 @@
+name: gha reg build artifact
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-artifact:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Register Build Artifacts in Cloudbees Platform
+        uses: cloudbees-io-gha/register-build-artifact@CBP-22787
+        id: go-action
+        with:
+          name: 22787-test
+          version: 22.7.87
+          url: docker.io/kcpTestApp/22787-test:22.7.87
+          type: docker
+          cloudbees-url: https://api.saas-preprod.beescloud.com
+          component-id: 2865f290-544d-41ed-ab82-31fb8235738b
