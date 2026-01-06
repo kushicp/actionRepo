@@ -3,18 +3,13 @@ kind: workflow
 name: publishAndDeployArtifact
 on:
   workflow_dispatch:
-    inputs:
-      env:
-        type: string
-        default: Test_env
-        required: true
 jobs:
   deployArtifact:
     steps:
       - name: Register deployed artifact
         with:
-          artifact-id: dfe40860-5cee-4caf-a78d-03e793711dd6
+          artifact-id: ea07033d-3008-40ec-9e50-a0efce7493d8
           target-environment: Test_env
-          labels: kushalcpTest
-        uses: cloudbees-io/register-deployed-artifact@CBP-22412
-        id: publishArtifact
+          labels: 27603-TestAdd
+        uses: cloudbees-io/register-deployed-artifact@v2
+        id: deployArtifact
