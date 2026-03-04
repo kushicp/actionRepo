@@ -1,6 +1,6 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: get artifact details
+name: get_artifact_details.yaml
 on:
   workflow_dispatch:
 jobs:
@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Get Artifact Details
         id: getArtifactDetails
-        uses: cloudbees-io/get-artifact-details@main
+        uses: cloudbees-io/get-artifact-details@test_api_time
         with:
           artifact-id: ea07033d-3008-40ec-9e50-a0efce7493d8
       - name: Print artifact details
