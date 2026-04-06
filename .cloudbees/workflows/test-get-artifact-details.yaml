@@ -18,7 +18,7 @@ jobs:
         id: get
         with:
           artifact-id: ${{ steps.publish.outputs.artifact-id }}
-        uses: cloudbees-io/get-artifact-details@CBP-22411
+        uses: cloudbees-io/get-artifact-details@v1
       - name: echo
         run: |
           echo name: ${{ steps.get.outputs.name }}
