@@ -6,19 +6,20 @@ on:
 jobs:
   build:
     steps:
-      - name: publish
-        id: publish
-        with:
-          version: 1.0.99
-          url: kcp.com/mycompany/art1/1.0.99
-          digest: ${{ cloudbees.scm.sha }}
-          name: art1
-        uses: cloudbees-io/register-build-artifact@v1
+      #- name: publish
+      #  id: publish
+      #  with:
+      #    version: 1.0.99
+      #    url: kcp.com/mycompany/art1/1.0.99
+      #    digest: ${{ cloudbees.scm.sha }}
+      #    name: art1
+      #  uses: cloudbees-io/register-build-artifact@v1
       - name: look up
         id: get
         with:
-          artifact-id: ${{ steps.publish.outputs.artifact-id }}
-        uses: cloudbees-io/get-artifact-details@CBP-22411
+           artifact-id: '24f42042-e40f-4b9d-8b5f-356b3da73bce'
+      #    artifact-id: ${{ steps.publish.outputs.artifact-id }}
+        uses: cloudbees-io/get-artifact-details@v1
       - name: echo
         run: |
           echo name: ${{ steps.get.outputs.name }}
