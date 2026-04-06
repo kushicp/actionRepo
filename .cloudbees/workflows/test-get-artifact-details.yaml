@@ -17,7 +17,7 @@ jobs:
       - name: look up
         id: get
         with:
-           artifact-id: '49937144-8000-4ea4-b6ea-af4440692721'
+           artifact-id: '5d5bb540-be1c-43f6-b3fa-067e835f33ef'
       #    artifact-id: ${{ steps.publish.outputs.artifact-id }}
         uses: cloudbees-io/get-artifact-details@v1
       - name: echo
