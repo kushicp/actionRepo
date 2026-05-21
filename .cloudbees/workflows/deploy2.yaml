@@ -15,11 +15,11 @@ on:
       artifact-id:
         type: string
         required: true
-        default: "bbeb9fc8-231a-48f1-86bf-1e53dffc8e52"
+        default: "5d5bb540-be1c-43f6-b3fa-067e835f33ef"
       environment:
         type: string
         required: true
-        default: kcp-env
+        default: kcp_env_appr
 jobs:
   Deploy:
     environment: ${{ inputs.environment }}
