@@ -37,5 +37,18 @@ jobs:
       - name: Register deployment
         uses: cloudbees-io/register-deployed-artifact@v2
         with:
-          artifact-id: ${{ inputs.artifact-id }}    
+          artifact-id: ${{ inputs.artifact-id }}
+  actionRepo-approval:
+    timeout-minutes: 4320
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
+    with:
+      instructions: "Final Approval"
+      disallowLaunchByUser: false
+      approvers: ""
+      notifyAllEligibleUsers: false
+      approvalInputs: |
+        param1:
+          type: string
+          default: "1"
+          description: Param One Desc
       
