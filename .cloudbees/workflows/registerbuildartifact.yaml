@@ -9,11 +9,11 @@ jobs:
       - id: registerBuildArtifact
         name: catalog action test
         with:
-          version: "14.a9"
-          url: docker.io/myapp/kcpImg14:14.0.29
-          digest: d150
-          labels:  "lbl1"
-          name: kcpBuildRegister 142
+          version: "14.93"
+          url: docker.io/myapp/kcpImg14:14.0.291
+          digest: d1503
+          labels:  "lbl12"
+          name: kcpBuildRegister 143
         uses: cloudbees-io/register-build-artifact@CBP-15450
       - name: Artifact Id output
         uses: docker://golang:1.20.3-alpine3.17
