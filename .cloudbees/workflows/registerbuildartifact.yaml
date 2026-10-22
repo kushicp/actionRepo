@@ -14,7 +14,7 @@ jobs:
           digest: d1503
           labels:  "lbl12"
           name: kcpBuildRegister 143
-        uses: cloudbees-io/register-build-artifact@CBP-15450
+        uses: cloudbees-io/register-build-artifact@v2
       - name: Artifact Id output
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
